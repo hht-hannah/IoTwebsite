@@ -40,7 +40,7 @@
           >
             <el-input v-model="registerValidateForm.clientSecret"></el-input>
           </el-form-item>
-          <el-button type="primary" @click="submitForm('registerValidateForm')">注册</el-button>
+          <el-button @click="submitForm('registerValidateForm')">注册</el-button>
           <el-button @click="resetForm('registerValidateForm')">重置</el-button>
     </el-form>
   </div>

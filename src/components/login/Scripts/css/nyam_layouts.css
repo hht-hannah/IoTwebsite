@@ -769,7 +769,7 @@
 .hidtb {
         background-color: #E7E7EA;
         border: 1px solid #DDDDDD;
-        background-image: url('../images/nyam_arrowicon.png');
+        /* background-image: url('../images/nyam_arrowicon.png'); */
         background-position: 20px top;
         background-repeat: no-repeat;
 }
@@ -1462,7 +1462,7 @@
         width: 41px;
         padding-left: 7px;
         text-align: left;
-        background-image: url(../images/order_bg.png);
+        /* background-image: url(../images/order_bg.png); */
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
@@ -1670,7 +1670,7 @@
         font-weight: bold;
         color: #fff;
         border: 1px solid #d2d2d2;
-        background: url('../images/casecheckicon.png') no-repeat right center;
+        /* background: url('../images/casecheckicon.png') no-repeat right center; */
 }
 
         .nyam_overview_bill_casetop_check:hover {
@@ -1740,14 +1740,14 @@
 input.ny_gobackbtn {
         padding-left: 33px;
         color: #333;
-        background: url('../images/goback_btnbg.png') no-repeat 10px center #fff;
-}
+        /* background: url('../images/goback_btnbg.png') no-repeat 10px center #fff;*/
+} 
 
         input.ny_gobackbtn:hover, input.ny_gobackbtn:focus {
                 background-color: none;
                 text-decoration: none;
                 color: #333;
-                background: url('../images/goback_btnbg.png') no-repeat 10px center #e6e6e6;
+                /* background: url('../images/goback_btnbg.png') no-repeat 10px center #e6e6e6; */
         }
 
 
@@ -1905,18 +1905,18 @@ input.ny_gobackbtn {
                 text-indent: 2em;
         }
 
-.config_choose_div_left {
+/* .config_choose_div_left {
         background-image: url('../images/ServiceConfig-auto.png');
         background-repeat: no-repeat;
         background-position: 20px 20px;
-}
-
+} */
+/* 
 .config_choose_div_right {
         background-image: url('../images/ServiceConfig.png');
         background-repeat: no-repeat;
         background-position: 20px 25px;
         background-size: 25%;
-}
+} */
 
 .config_choose_div a {
         margin-top: 20px;
