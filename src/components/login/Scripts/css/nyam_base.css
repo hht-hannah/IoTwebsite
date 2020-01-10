@@ -1,0 +1,173 @@
+﻿html, body {
+        font-family: Arial, 'Source Sans Pro', 'Microsoft YaHei';
+        font-size: 12px;
+        -webkit-font-smoothing: antialiased;
+        min-height: 100%;
+        background-color: #F3F3F3;
+}
+
+a {
+        /*color: #0088CC;*/
+        blr: expression(this.onFocus=this.blur());
+}
+
+
+        a:hover, a:active, a:focus {
+                outline: none;
+                text-decoration: none;
+                /*color: #72afd2;*/
+        }
+
+        a:hover, a:focus {
+                /*color: #2a6496;*/
+        }
+
+        a:focus {
+                outline: none;
+        }
+
+.btn {
+        border-radius: 2px !important;
+        blr: expression(this.onFocus=this.blur()) !important;
+}
+
+        .btn:hover, .btn:focus, .btn:active {
+                outline: none !important;
+        }
+
+.fr {
+        float: right;
+}
+
+.fl {
+        float: left;
+}
+
+.clear {
+        clear: both;
+}
+
+table {
+        margin: 0 !important;
+}
+
+        table td {
+                word-break: break-all;
+        }
+
+ul {
+        padding: 0;
+}
+
+button, input, select, textarea {
+        font-family: 'Microsoft YaHei' !important;
+}
+
+.form-control {
+        width: auto;
+        display: inline-block;
+        padding: 7px 12px;
+        font-size: 12px;
+        min-width: 200px;
+        height: 34px;
+        line-height: 1.428571429;
+        color: #555;
+        vertical-align: middle;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+        -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.input-group .form-control {
+        width: auto;
+}
+
+label {
+        height: 32px;
+        line-height: 20px;
+        padding: 6px 12px;
+}
+
+/* 半透明的遮罩层 */
+#overlay {
+        background: #000;
+        filter: alpha(opacity=0); /* IE的透明度 */
+        opacity: 0; /* 透明度 */
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 999; /* 此处的图层要大于页面 */
+}
+
+#overlay2 {
+        background: #000;
+        filter: alpha(opacity=0); /* IE的透明度 */
+        opacity: 0; /* 透明度 */
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 999; /* 此处的图层要大于页面 */
+}
+
+#overlay_right {
+        background: #000;
+        filter: alpha(opacity=0); /* IE的透明度 */
+        opacity: 0; /* 透明度 */
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 99; /* 此处的图层要大于页面 */
+}
+
+input[type=radio] {
+        margin-left: 15px;
+}
+
+input[type="checkbox"] {
+        margin: 2px 0 0;
+}
+
+.form-control-min {
+        min-width: 0;
+}
+
+.form-group {
+        margin: 0;
+}
+
+.form-control-small {
+        min-width: 0;
+        width: auto;
+        height: 30px;
+}
+
+h5 {
+        font-size: 13px;
+}
+
+table td.layertable_first {
+        text-align: right;
+        font-weight: bold;
+}
+
+.noLineBorder td {
+        border-top: 0 !important;
+}
+.redstar{
+        margin-left:8px;
+        margin-right:8px;
+        color:red;
+}

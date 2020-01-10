@@ -1,0 +1,2008 @@
+﻿.nyam_header {
+        height: 50px;
+        max-height: 100px;
+        z-index: 1000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+}
+
+.userlogo {
+        display: block;
+        margin: 10px;
+        height: 30px !important;
+        width: auto;
+}
+
+.nyam_logo {
+        float: left;
+        display: block;
+        width: 250px;
+        height: 50px;
+        line-height: 50px;
+        padding: 0 10px;
+        font-family: 'Microsoft YaHei';
+        font-weight: 500;
+        font-size: 20px;
+        text-align: center;
+        position: relative;
+}
+
+        .nyam_logo > img {
+                height: 44px;
+                margin-top: 2px;
+                display: inline-block;
+                vertical-align: top;
+        }
+
+/*.nylogo_text_beta {
+    position: absolute;
+    top: 10px;
+    right: 27px;
+    width: 35px;
+    height: 17px;
+    border: 1px solid #fff;
+    -o-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+}*/
+
+.nyam_header > .navbar {
+        height: 50px;
+        margin-bottom: 0;
+        margin-left: 250px;
+}
+
+.navbar .nyam_topbtn {
+        display: block;
+        height: 50px;
+        background: none;
+        position: relative;
+        margin-top: 0;
+        margin-bottom: 0;
+}
+
+
+        .navbar .nyam_topbtn > i {
+                font-size: 21px;
+                padding-left: 17px;
+                padding-right: 17px;
+                line-height: 35px;
+                padding-top: 7px;
+        }
+
+.navbar a.nyam_topbtn:hover {
+        cursor: pointer;
+}
+
+.navbar .nyam_topbtn:hover > i {
+}
+
+.navbar .nyam_topbtn > .nyam_noticespan {
+        position: absolute;
+        top: 8px;
+        right: 10px;
+        display: block;
+        height: 16px;
+        width: 16px;
+        border-radius: 8px;
+        overflow: hidden;
+        text-align: center;
+        line-height: 16px;
+        font-size: 12px;
+}
+
+.circle_red {
+        background-color: #EF514E;
+        color: #fff;
+}
+
+.navbar .nyam_topbtnrightline {
+        border-right: 1px solid #fff;
+}
+
+.navbar .nyam_topbtnleftline {
+        /*border-left: 1px solid #fff;*/
+}
+
+.nyam_nyam_topbtn_cname, .nyam_nyam_topbtn_ename {
+        display: block;
+        line-height: 35px;
+        height: 28px;
+        font-size: 12px;
+        text-align: right;
+        margin-left: 17px;
+        color: #828689;
+}
+
+
+.nyam_nyam_topbtn_ename {
+        font-size: 12px;
+        line-height: 15px;
+        height: 15px;
+}
+
+.navbar .nyam_topbtn:hover .nyam_nyam_topbtn_cname, .navbar .nyam_topbtn:hover .nyam_nyam_topbtn_ename {
+        color: #555555;
+}
+
+.nyam_nyam_topbtn_down {
+        display: block;
+        padding: 9px 0px 0 10px !important;
+        cursor: pointer;
+}
+
+.nyam_nyam_topbtn_user {
+        padding: 7px 10px 0 7px !important;
+}
+
+.nyam_user_ul li a {
+        position: relative;
+        padding-left: 20px;
+        display: block;
+}
+
+        .nyam_user_ul li a i {
+                position: absolute;
+                left: 0px;
+                top: 5px;
+        }
+
+@media(max-width:700px) {
+
+        .nyam_nyam_topbtn_cname, .nyam_nyam_topbtn_ename {
+                display: none !important;
+        }
+
+        .nyam_logo {
+                width: 100px !important;
+        }
+
+        .nyam_logo_text {
+                display: none !important;
+        }
+
+        .nyam_header > .navbar {
+                margin-left: 100px;
+        }
+}
+
+.nyam_container {
+        position: relative;
+}
+
+.nyam_container_left {
+        position: fixed;
+        width: 250px;
+        top: 50px;
+        left: 0;
+        height: 100%;
+        overflow: auto;
+}
+
+.control_hide {
+        left: -250px !important;
+}
+
+.control_right {
+        left: 0 !important;
+}
+
+.person_info {
+        display: block;
+        padding: 10px;
+        height: 68px;
+        width: 100%;
+}
+
+.userimage_circle {
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        height: 45px;
+        width: 45px;
+        border: 1px solid #dfdfdf;
+}
+
+.person_info > .info {
+        font-weight: 600;
+        padding: 5px 5px 5px 15px;
+        font-size: 14px;
+        line-height: 1;
+}
+
+        .person_info > .info > a {
+                text-decoration: none;
+                padding-right: 5px;
+                margin-top: 3px;
+                font-size: 11px;
+                font-weight: normal;
+                color: #555555;
+        }
+
+
+.nyam_container_nav {
+        display: block;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+        user-select: none;
+}
+
+        .nyam_container_nav > li {
+                margin: 0;
+                padding: 0;
+                line-height: 30px;
+        }
+
+                .nyam_container_nav > li.onclicked > a {
+                        background: rgba(0, 0, 0, 0.3);
+                }
+
+
+                .nyam_container_nav > li > a {
+                        padding: 5px 10px;
+                        display: block;
+                        margin: 0 1px 0 0;
+                        cursor: pointer;
+                        font-size: 14px;
+                }
+
+
+
+                .nyam_container_nav > li a:hover {
+                }
+
+                .nyam_container_nav > li.onclicked > a {
+                        font-weight: bold;
+                        /*border-left: 5px solid #459BEF;*/
+                }
+
+                .nyam_container_nav > li.onclicked > .nyam_container_nav_sub {
+                        display: block !important;
+                }
+
+                .nyam_container_nav > li.sub_menu > a {
+                        border-left: 0 !important;
+                }
+
+
+                .nyam_container_nav > li > a > span {
+                        margin-left: 10px;
+                        display: inline-block;
+                        /*width: 166px;*/
+                        line-height: 23px;
+                        margin-top: 3px;
+                }
+
+                .nyam_container_nav > li > a > .fa, .nyam_container_nav > li > a > .glyphicon, nyad_container_nav > li > a > .ion {
+                        width: 20px;
+                        text-align: center;
+                        display: inline-block;
+                        margin-top: 8px;
+                }
+
+
+                .nyam_container_nav > li > .nyam_container_nav_sub {
+                        margin: 0;
+                        display: none;
+                        list-style: none;
+                        padding: 0;
+                }
+
+.nyam_container_nav_sub li {
+        margin: 0;
+        padding: 0;
+        line-height: 34px;
+}
+
+.nyam_container_nav_sub > li.onclicked {
+}
+
+        .nyam_container_nav_sub > li.onclicked a {
+                font-weight: bold;
+        }
+
+.nyam_container_nav_sub > li a:hover {
+        font-weight: bold;
+}
+
+/*.nyam_container_nav_sub > li:hover {
+    border-left: 5px solid #459BEF;
+}*/
+
+.nyam_container_nav_sub > li > a {
+        padding: 0px 5px 0px 15px;
+        display: block;
+        margin: 0 1px 0 0;
+        cursor: pointer;
+        font-size: 13px;
+}
+
+        .nyam_container_nav_sub > li > a > span {
+                /* margin-left: 10px; */
+                display: inline-block;
+                /*width: 166px;*/
+                line-height: 23px;
+                margin-top: 5px;
+                font-size: 12px;
+        }
+
+        .nyam_container_nav_sub > li > a > .fa, .nyam_container_nav_sub > li > a > .glyphicon, nyad_container_nav_sub > li > a > .ion {
+                width: 20px;
+                text-align: center;
+                display: inline-block;
+                margin-top: 11px;
+        }
+
+
+.nyam_container_nav_sub > li:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nyam_container_right {
+        /*min-height: 100%;*/
+        display: block;
+        background-color: #F5F5F7;
+        position: absolute;
+        top: 50px;
+        left: 250px;
+        right: 0px;
+        bottom: 0px;
+        overflow: auto;
+}
+
+.nyam_overview {
+        /*height: 158px;*/
+        width: 100%;
+}
+
+.mainlist {
+        list-style: none;
+}
+
+.nyam_overview_bill {
+        /*height: 158px;*/
+        padding: 15px;
+        /*border-right: 1px solid #000;*/
+        /*box-shadow: 1px 0 0 #545454;*/
+        /*border-top: 1px solid #000;*/
+        /*border-bottom: 1px solid #000;*/
+}
+
+.mainlist .nyam_overview_bill {
+        height: 158px;
+}
+
+.nyam_overview_bill h3, .nyam_overview_bill h5, .nyam_overview_bill h6 {
+        color: #bbb;
+        margin: 5px 0;
+}
+
+        .nyam_overview_bill h3 small {
+                font-size: 12px;
+                color: #bbb;
+        }
+
+
+.nyam_overview_bill h5 {
+        font-weight: bold;
+}
+
+.nyam_overview_bill h3, .nyam_overview_bill h6 {
+        display: inline-block;
+}
+
+.nyam_overview_bill h3 {
+        color: #fff;
+}
+
+.nyam_overview_bill_chart {
+        height: 61px;
+        width: 100%;
+        background: #f3f3f3;
+}
+
+.nyam_overview_bill_subscription {
+        width: 80px;
+        height: 80px;
+        margin-top: 20px;
+        border-radius: 40px;
+        background-color: #43627F;
+        text-align: center;
+        line-height: 80px;
+}
+
+        .nyam_overview_bill_subscription span {
+                color: #fff;
+        }
+/*首页头部样式开始*/
+
+.nyam_overview_bill0 {
+        /*height: 158px;*/
+        padding: 15px;
+        border-right: 1px solid #000;
+        box-shadow: 1px 0 0 #545454;
+        /*border-top: 1px solid #000;*/
+        border-bottom: 1px solid #000;
+}
+
+.mainlist .nyam_overview_bill0 {
+        height: 158px;
+}
+
+.nyam_overview_bill0 h3, .nyam_overview_bill0 h5, .nyam_overview_bill0 h6 {
+        color: #bbb;
+        margin: 5px 0;
+}
+
+        .nyam_overview_bill0 h3 small {
+                font-size: 12px;
+                color: #bbb;
+        }
+
+
+.nyam_overview_bill0 h5 {
+        font-weight: bold;
+}
+
+.nyam_overview_bill0 h3, .nyam_overview_bill0 h6 {
+        display: inline-block;
+}
+
+.nyam_overview_bill0 h3 {
+        color: #fff;
+}
+
+.nyam_overview_bill0_chart {
+        height: 61px;
+        width: 100%;
+        background: #f3f3f3;
+}
+
+.nyam_overview_bill0_subscription {
+        width: 80px;
+        height: 80px;
+        margin-top: 20px;
+        border-radius: 40px;
+        background-color: #43627F;
+        text-align: center;
+        line-height: 80px;
+}
+
+        .nyam_overview_bill0_subscription span {
+                color: #fff;
+        }
+
+.nyam_overview_bill0_span {
+        color: #bbb;
+        display: block;
+        margin-bottom: 5px;
+}
+
+.month_overflow .nyam_overview_bill0 {
+        border-left: 1px solid #d2d2d2;
+        box-shadow: none;
+        border-top: 0px;
+        border-right: 0;
+}
+
+        .month_overflow .nyam_overview_bill0 h3, .month_overflow .nyam_overview_bill0 h5, .month_overflow .nyam_overview_bill0 h6 {
+                color: #777;
+                font-weight: normal;
+        }
+
+        .month_overflow .nyam_overview_bill0 h3 {
+                color: #000;
+        }
+
+.month_overflow .nyam_overview_contract span {
+        color: #000;
+}
+
+/*首页头部样式结束*/
+
+
+.nyam_overview_price {
+        margin-right: 10px;
+}
+
+        .nyam_overview_price a {
+                color: #fff;
+        }
+
+.nyam_overview_price_money {
+        border-radius: 30px;
+        background-color: #4BA0D2;
+        overflow: hidden;
+        text-align: center;
+        line-height: 71px;
+        height: 58px;
+        width: 58px;
+        margin: 4px auto;
+}
+
+        .nyam_overview_price_money i {
+                color: #fff;
+                font-size: 28px;
+        }
+
+.nyam_overview_contract_info {
+        margin-bottom: 15px;
+}
+
+.nyam_overview_contract h5 {
+        color: #bbb;
+        display: block;
+        font-weight: normal;
+        font-size: 13px;
+}
+
+.nyam_overview_contract span {
+        color: #fff;
+        margin: 0 5px;
+}
+
+.nyam_block {
+        padding: 15px 0;
+}
+
+.nyam_block_div {
+        background: #fff;
+        padding: 10px;
+        /*margin: 0 -5px 20px -5px;*/
+}
+
+.nyam_block_div_title {
+        font-size: 15px;
+        padding: 0px 15px;
+        line-height: 45px;
+        box-shadow: 0 0 1px rgba(0,0,0,.2);
+        -ms-box-shadow: 0 0 1px rgba(0,0,0,.2);
+        -moz-box-shadow: 0 0 1px rgba(0,0,0,.2);
+        -webkit-box-shadow: 0 0 1px rgba(0,0,0,.2);
+        -o-box-shadow: 0 0 1px rgba(0,0,0,.2);
+        overflow: hidden;
+}
+
+        .nyam_block_div_title .btn {
+                margin-top: 5px;
+        }
+
+.nyam_topfive_title {
+        width: 25%;
+}
+
+        .nyam_topfive_title span {
+                display: block;
+                text-align: right;
+                height: 36px;
+                line-height: 59px;
+        }
+
+.nyam_topfive_title2 {
+        width: 60%;
+}
+
+        .nyam_topfive_title2 td {
+                padding: 4px !important;
+        }
+
+.nyam_topfive_charts {
+        width: 100%;
+        height: 280px;
+        margin-top: -50px;
+}
+
+.nyam_topfive_charts2 {
+        width: 40%;
+        height: 300px;
+        margin: -95px 0 -50px 0;
+}
+
+.nyam_block_div_contact table {
+        background: #fff;
+}
+
+        .nyam_block_div_contact table th {
+                border-bottom: 1px solid #d2d2d2 !important;
+                background: #f6f6f6;
+        }
+
+.nyam_block_div_contact table {
+        border-collapse: collapse !important;
+}
+
+        .nyam_block_div_contact table td {
+                /*background: #fff !important;*/
+        }
+
+.nyam_setting {
+        width: 175px;
+}
+
+.nyam_top_ul {
+        position: absolute;
+        top: 50px;
+        right: 0;
+        background: #FFFFFF;
+        border: 1px solid #D6D6D6;
+        display: none;
+        /*z-index:99999;*/
+}
+
+.nyam_top_ul_title {
+        display: block;
+        background: #F5F5F5;
+        height: 40px;
+        line-height: 40px;
+        color: #333;
+        font-size: 16px;
+        padding-left: 10px;
+}
+
+.nyam_top_ul > i {
+        position: absolute;
+        top: -10px;
+        right: 12px;
+        font-size: 25px;
+        color: #F5F5F5;
+}
+
+.nyam_top_ul > ul {
+        list-style: none;
+        padding: 10px 20px;
+        margin-bottom: 0;
+        max-height: 470px;
+        overflow: auto;
+}
+
+        .nyam_top_ul > ul > li {
+                line-height: 23px;
+                margin-bottom: 7px;
+        }
+
+                .nyam_top_ul > ul > li:hover {
+                        text-decoration: underline;
+                }
+
+                .nyam_top_ul > ul > li > a {
+                        cursor: pointer;
+                }
+
+.nyam_top_ul_i {
+        margin-right: 10px;
+}
+
+.nyam_top_ul_divider {
+        border-bottom: 1px solid #AAACAF;
+        line-height: 20px !important;
+}
+
+        .nyam_top_ul_divider > span {
+                line-height: 30px;
+        }
+
+.nyam_theme {
+        list-style: none;
+        display: inline-block;
+        margin-left: 10px;
+}
+
+        .nyam_theme li {
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+        }
+
+                .nyam_theme li a {
+                        display: inline-block;
+                        width: 20px;
+                        margin: 5px auto;
+                        height: 20px;
+                        border: 1px solid #AAACAF;
+                        border-radius: 3px;
+                        cursor: pointer;
+                }
+
+                        .nyam_theme li a:hover {
+                                width: 24px;
+                                margin: 1px auto;
+                                height: 24px;
+                                box-shadow: 0 0 5px #fff;
+                                border: 2px solid #AAACAF;
+                        }
+
+                        .nyam_theme li a.nyam_theme_blue {
+                                background: #5A8AB8;
+                        }
+
+                        .nyam_theme li a.nyam_theme_black {
+                                background: #343436;
+                        }
+
+.nyam_topfive_color1, .nyam_topfive_color2, .nyam_topfive_color3, .nyam_topfive_color4, .nyam_topfive_color5 {
+        display: inline-block;
+        width: 3px;
+        height: 12px;
+        margin-right: 7px;
+        border-radius: 2px;
+        overflow: hidden;
+}
+
+.nyam_topfive_color1 {
+        background: #60C0DD;
+}
+
+.nyam_topfive_color2 {
+        background: #F3A43B;
+}
+
+.nyam_topfive_color3 {
+        background: #FAD860;
+}
+
+.nyam_topfive_color4 {
+        background: #AFD482;
+}
+
+.nyam_topfive_color5 {
+        background: #FE8463;
+}
+
+.nyam_overview_bill_span {
+        color: #bbb;
+        display: block;
+        margin-bottom: 5px;
+}
+
+.nyam_block_div_table {
+        width: 100%;
+}
+
+.hidtb {
+        background-color: #E7E7EA;
+        border: 1px solid #DDDDDD;
+        background-image: url('../images/nyam_arrowicon.png');
+        background-position: 20px top;
+        background-repeat: no-repeat;
+}
+
+        .hidtb:hover {
+                background-color: #E7E7EA !important;
+        }
+
+.hidtb_table {
+        border: 1px solid #EBEBEB;
+}
+
+        .hidtb_table tr {
+                background-color: #FEFEFE;
+        }
+
+                .hidtb_table tr td {
+                        padding: 5px !important;
+                }
+
+.nyam_block_div_charts {
+        width: 100%;
+        height: 300px;
+        margin-top: -50px;
+}
+
+        .nyam_block_div_charts h1, .nyam_block_div_charts h2, .nyam_block_div_charts h3, .nyam_block_div_charts h4, .nyam_block_div_charts h5, .nyam_block_div_charts h6 {
+                font-family: 'Microsoft YaHei';
+        }
+
+.nyam_loginbg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-image: url('../images/login.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+}
+
+.nyam_login_left {
+        position: absolute;
+        right: 55%;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        background-image: url(../images/login_left.png);
+        background-position: center right;
+        background-repeat: no-repeat;
+        background-size: 70%;
+}
+
+.nyam_login_right {
+        position: absolute;
+        right: 0;
+        left: 55%;
+        top: 0;
+        bottom: 0;
+        margin-top: 12%;
+}
+
+@media(max-width:1500px) {
+        .nyam_login_left {
+                right: 50%;
+                background-size: 80%;
+        }
+
+        .nyam_login_right {
+                left: 55%;
+        }
+}
+
+@media(max-width:1100px) {
+        .nyam_login_left {
+                right: 60%;
+                background-size: 100%;
+        }
+
+        .nyam_login_right {
+                left: 40%;
+        }
+}
+
+@media(max-width:700px) {
+        .nyam_login_left {
+                right: 100%;
+        }
+
+        .nyam_login_right {
+                left: 10%;
+        }
+}
+
+@media(max-height:768px) {
+
+        .nyam_login_right {
+                margin-top: 10%;
+        }
+}
+
+@media(max-height:550px) {
+        .nyam_login_right {
+                margin-top: 5%;
+        }
+}
+
+.nyam_login_logo {
+        min-height: 70px;
+}
+
+.nyam_login_logoimg {
+        height: 100%;
+        /* padding-right: 20px; */
+        /*border-right: 2px solid rgba(255, 255, 255, 0.47);*/
+        /*margin-right: 20px;*/
+        padding: 10px 20px 10px 0;
+}
+
+@media(max-width:780px) {
+        .nyam_login_logoimg {
+                padding-right: 0px;
+                border-right: 0px;
+                margin-right: 0px;
+        }
+}
+
+.nyam_login_logotext > span {
+        display: block;
+        font-size: 30px;
+        color: #fff;
+        line-height: 40px;
+        margin-top: 17px;
+}
+
+.nyam_login_logotext > small {
+        display: block;
+        font-size: 16px;
+        color: #fff;
+        line-height: 30px;
+}
+
+.nyam_login_box input[type="text"], .nyam_login_box input[type="password"] {
+        width: 350px;
+        height: 40px;
+        line-height: 30px;
+        padding: 5px 10px 5px 45px;
+        background-color: none;
+        display: block;
+}
+
+@media(max-width:400px) {
+        .nyam_login_box input[type="text"], .nyam_login_box input[type="password"] {
+                width: 90%;
+        }
+}
+
+.nyam_login_box_div {
+        position: relative;
+        margin-top: 30px;
+}
+
+        .nyam_login_box_div img {
+                position: absolute;
+                top: 6px;
+                left: 10px;
+                width: 27px;
+        }
+
+
+
+.nyam_login_btn {
+        width: 200px;
+        text-align: center;
+        height: 40px;
+        line-height: 35px;
+        margin-top: 30px;
+        padding-top: 0;
+        padding-bottom: 0;
+        font-size: 16px;
+        letter-spacing: 5px;
+}
+
+        .nyam_login_btn > img {
+                height: 15px;
+        }
+
+.nyam_login_box_a {
+        display: inline-block;
+        line-height: 40px;
+        margin-top: 40px;
+        color: #A4D5F6;
+        margin-left: 20px;
+}
+
+        .nyam_login_box_a:hover {
+                cursor: pointer;
+                color: #fff;
+        }
+
+.nyam_login_box_error {
+        color: yellow;
+        display: block;
+}
+
+.nyam_help_btn {
+        position: absolute;
+        top: 35px;
+        right: 30px;
+}
+
+.nyam_error_div {
+        width: 70%;
+        min-height: 150px;
+        border: 1px solid #ddd;
+        background: #fff;
+        border-radius: 10px;
+        margin: 10% auto 0 auto;
+        padding: 20px;
+}
+
+.nyam_error_div_left {
+        width: 40%;
+        text-align: right;
+        padding-right: 30px;
+        padding-top: 10px;
+        /*max-width:100px;*/
+}
+
+.nyam_error_div_right {
+        width: 50%;
+}
+
+.nyam_pay_minus {
+        line-height: 34px;
+        cursor: pointer;
+        font-size: 16px;
+        text-align: center;
+}
+
+.nyam_pay_plus {
+        font-size: 14px;
+        margin-left: 9px;
+        cursor: pointer;
+}
+
+        .nyam_pay_plus i {
+                font-size: 16px;
+                margin-right: 5px;
+        }
+
+.nyam_mailblock {
+        border: 1px solid #bbb;
+        border-radius: 5px;
+        background-color: #f3f3f3;
+        margin-left: 0px;
+        padding: 20px 0;
+        margin-bottom: 20px;
+}
+
+@media(max-width:992px) {
+        .nyam_mailblock {
+                margin-left: 0px;
+        }
+}
+
+
+.nyam_resources_block {
+        padding: 0;
+        width: 100%;
+}
+
+.nyam_resources_top {
+        list-style: none;
+        background: #fff;
+        margin: 0;
+        width: 100%;
+        overflow: auto;
+        white-space: nowrap;
+}
+
+
+        .nyam_resources_top > li {
+                display: table-cell;
+                height: 92px;
+                width: 120px;
+                border-right: 1px solid #eee;
+                /* border-bottom: 1px solid #eee; */
+                padding: 8px 12px;
+                margin: 0;
+        }
+
+                .nyam_resources_top > li > a {
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                        text-align: center;
+                        color: #000;
+                }
+
+                        .nyam_resources_top > li > a > img {
+                                width: 38px;
+                                height: 38px;
+                                margin-bottom: 5px;
+                        }
+
+                        .nyam_resources_top > li > a > span, .nyam_resources_top > li > a > h5 {
+                                line-height: 20px;
+                                padding: 0;
+                                margin: 0;
+                                font-size: 12px;
+                        }
+
+                        .nyam_resources_top > li > a > span {
+                                font-size: 12px;
+                                color: #999;
+                        }
+
+                .nyam_resources_top > li:hover {
+                        cursor: pointer;
+                }
+
+                        .nyam_resources_top > li:hover > a {
+                                color: #fff;
+                        }
+
+                                .nyam_resources_top > li:hover > a > span {
+                                        color: #ddd;
+                                }
+
+
+
+
+                .nyam_resources_top > li.onclicked > a {
+                        color: #fff;
+                }
+
+                        .nyam_resources_top > li.onclicked > a > span {
+                                color: #ddd;
+                        }
+
+.nyam_resources_search {
+        padding: 10px 15px;
+        background: #DAE5EF;
+}
+
+        .nyam_resources_search input {
+                margin: 0 10px;
+        }
+
+.nyam_resources_list {
+        width: 100%;
+        padding: 10px;
+        list-style: none;
+}
+
+        .nyam_resources_list > li {
+                width: 100%;
+                display: block;
+                margin-bottom: 15px;
+        }
+
+                .nyam_resources_list > li > a {
+                        border: 1px solid #eee;
+                        border-radius: 5px;
+                        background: #fff;
+                        padding: 10px;
+                        display: block;
+                        color: #000;
+                }
+
+                        .nyam_resources_list > li > a h4 {
+                                font-size: 16px;
+                                margin: 0 0 10px 0;
+                                border-bottom: 1px solid #eee;
+                                padding-bottom: 10px;
+                        }
+
+                        .nyam_resources_list > li > a .col-md-12 {
+                                padding: 0;
+                        }
+
+.nyam_resources_list_circle {
+        height: 30px;
+        width: 30px;
+        border-radius: 15px;
+        text-align: center;
+        line-height: 30px;
+        margin-right: 10px;
+        margin-left: -15px;
+}
+
+        .nyam_resources_list_circle i {
+                font-size: 14px;
+                color: #fff;
+        }
+
+.nyam_resources_list_circle_0 {
+        background: #5c9a8f;
+}
+
+.nyam_resources_list_circle_1 {
+        background: #DF9AD7;
+}
+
+.nyam_resources_list_circle_2 {
+        background: #B9C989;
+}
+
+.nyam_resources_list_circle_3 {
+        background: #75CCA3;
+}
+
+.nyam_resources_list_circle_4 {
+        background: #9F9DE1;
+}
+
+.nyam_resources_list_circle_5 {
+        background: #FFCEA6;
+}
+
+.nyam_resources_list_circle_6 {
+        background: #87C4EF;
+}
+
+.nyam_resources_list_circle_7 {
+        background: #E4A2A6;
+}
+
+.nyam_resources_list_circle_8 {
+        background: #B6CB86;
+}
+
+.nyam_resources_list_circle_9 {
+        background: #D87A80;
+}
+
+.nyam_resources_list_circle_10 {
+        background: #F273BB;
+}
+
+.nyam_resources_list_circle_11 {
+        background: #5AB1EF;
+}
+
+.nyam_resources_list_circle_12 {
+        background: #B59B99;
+}
+
+.nyam_resources_list_circle_13 {
+        background: rgba(99, 147, 255, 0.57);
+}
+
+.nyam_resources_list_right {
+        /*width: 100%;*/
+        overflow: hidden;
+        word-break: break-all;
+}
+
+        .nyam_resources_list_right span, .nyam_resources_list_right h5 {
+                font-size: 12px;
+                margin: 0;
+        }
+
+        .nyam_resources_list_right::after {
+                content: ".";
+                display: block;
+                height: 0;
+                clear: both;
+                visibility: hidden;
+        }
+
+        .nyam_resources_list_right h5 {
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                /*height: 14px;*/
+                word-break: break-all;
+                line-height: 1.3;
+        }
+
+        .nyam_resources_list_right span {
+                color: #999;
+        }
+
+.nyam_resources_list > li > a:hover {
+        color: #fff;
+}
+
+        .nyam_resources_list > li > a:hover span {
+                color: #ddd;
+        }
+
+.nyam_resources_detail_div {
+        position: relative;
+        margin: 15px;
+        padding: 15px;
+        border-radius: 5px;
+        background: #fff;
+        border: 1px solid #eee;
+}
+
+        .nyam_resources_detail_div > h4 {
+                margin: 0 0 10px 0;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 10px;
+        }
+
+.nyam_resources_list_part {
+        margin-bottom: 10px;
+}
+
+.nyam_resources_list_partsmall {
+        /*width: 50% !important;*/
+        margin-bottom: 7px !important;
+}
+
+.nyam_resources_back {
+        position: absolute;
+        top: 15px;
+        right: -15px;
+        height: 20px;
+        width: 100px;
+        display: block;
+        cursor: pointer;
+        color: #698199;
+        font-size: 12px;
+}
+
+        .nyam_resources_back i {
+                margin-right: 5px;
+                color: #698199;
+                font-size: 12px;
+        }
+
+.nyam_resources_info {
+        width: 100%;
+        /*border: 1px solid #eee;*/
+        padding-top: 15px;
+        border-radius: 5px;
+        position: relative;
+}
+
+        .nyam_resources_info .menu {
+                display: block;
+        }
+
+                .nyam_resources_info .menu h4 {
+                        float: left;
+                        cursor: pointer;
+                }
+
+        .nyam_resources_info h4.nyam_resources_info_title {
+                height: 35px;
+                line-height: 35px;
+                margin-top: 0;
+                color: #666;
+                padding: 0px 20px;
+                margin-right: 5px;
+                cursor: pointer;
+                /* border-bottom: 2px solid rgba(250, 250, 250, 0.5); */
+                margin-bottom: 0;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                font-size: 14px;
+        }
+
+
+
+
+                .nyam_resources_info h4.nyam_resources_info_title > i {
+                        margin-right: 10px;
+                }
+
+.nyam_resources_info_con {
+        border-top: 0 !important;
+}
+
+.nyam_resources_info_timediv {
+        height: 41px;
+        background: #43627F;
+}
+
+        .nyam_resources_info_timediv .nyam_resources_info_con_a {
+                display: inline-block;
+                width: 75px;
+                text-align: center;
+                height: 41px;
+                line-height: 41px;
+                font-size: 14px;
+                color: #fff;
+        }
+
+                .nyam_resources_info_timediv .nyam_resources_info_con_a.active {
+                        background: #fff !important;
+                }
+
+                .nyam_resources_info_timediv .nyam_resources_info_con_a:hover {
+                        background: rgba(255, 255, 255, 0.3);
+                        cursor: pointer;
+                }
+
+.nyam_resources_charts {
+        height: 300px;
+}
+
+.nyam_homeshow {
+        position: absolute;
+        right: 22px;
+        top: 15px;
+        cursor: pointer;
+        padding: 4px 12px;
+        z-index: 33;
+        color: #b71818;
+}
+
+
+        .nyam_homeshow:hover {
+                color: #fd0500;
+        }
+
+.nyam_resources_info_condiv {
+        position: relative;
+        width: 50%;
+        display: inline-block;
+        /* margin-bottom: 20px; */
+        min-width: 300px;
+        height: 300px;
+        padding: 10px 0px 15px 10px;
+        border: 1px solid #eee;
+        border-top: 0;
+        border-left: 0;
+}
+
+@media(max-width:903px) {
+        .nyam_resources_info_condiv {
+                width: 100%;
+        }
+}
+
+.nyam_resources_info_condiv > div {
+        width: 100%;
+        height: 100%;
+}
+
+.nyam_resources_change_h5 {
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+}
+
+        .nyam_resources_change_h5 i {
+                margin-right: 5px;
+        }
+
+.btn-ClickOnce {
+}
+
+.month_overflow {
+        background: #f3f3f3 !important;
+        border: 1px solid #d2d2d2;
+        border-left: 0;
+}
+
+        .month_overflow .nyam_overview_bill {
+                border-left: 1px solid #d2d2d2;
+                box-shadow: none;
+                border-top: 0px;
+                border-right: 0;
+        }
+
+                .month_overflow .nyam_overview_bill h3, .month_overflow .nyam_overview_bill h5, .month_overflow .nyam_overview_bill h6 {
+                        color: #777;
+                        font-weight: normal;
+                }
+
+                .month_overflow .nyam_overview_bill h3 {
+                        color: #000;
+                }
+
+        .month_overflow .nyam_overview_contract span {
+                color: #000;
+        }
+
+.nyam_resources_list_order {
+        display: inline-block;
+        color: #fff !important;
+        line-height: 24px;
+        height: 32px;
+        width: 41px;
+        padding-left: 7px;
+        text-align: left;
+        background-image: url(../images/order_bg.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        font-size: 12px;
+        /*font-weight: bold;*/
+        position: absolute;
+        top: 0;
+        left: 0;
+}
+
+.table-choose tr.clicked td {
+        background-color: #D1DCDF !important;
+}
+
+.spanOverEllipsis {
+        text-overflow: ellipsis;
+        overflow: hidden;
+}
+
+.applicationIcon .icon {
+        background: url(/Scripts/images/timg.jpg) no-repeat; /*url为png图片的路径*/
+        /*width和line-height分别对应每个小图标的宽和高*/
+        width: 20px;
+        line-height: 20px;
+        display: inline-block;
+        margin-right: 5px;
+}
+
+.applicationIcon .icon-success { /*png图片左上角为原点,往右往下均为负值*/
+        background-position: -176px -95px; /*对应小图标的坐标*/
+}
+
+.applicationIcon .icon-error { /*png图片左上角为原点,往右往下均为负值*/
+        background-position: -232px -95px; /*对应小图标的坐标*/
+}
+
+.iconTimg {
+        /*width和line-height分别对应每个小图标的宽和高*/
+        width: 20px;
+        line-height: 20px;
+        display: inline-block;
+        margin-right: 5px;
+}
+
+.iconTimg-success { /*png图片左上角为原点,往右往下均为负值*/
+        background: url(/Scripts/images/timg.jpg) no-repeat; /*url为png图片的路径*/
+        background-position: -176px -95px; /*对应小图标的坐标*/
+}
+
+.iconTimg-error { /*png图片左上角为原点,往右往下均为负值*/
+        background: url(/Scripts/images/timg.jpg) no-repeat; /*url为png图片的路径*/
+        background-position: -232px -95px; /*对应小图标的坐标*/
+}
+
+.iconVM {
+        width: 20px;
+        height: 20px;
+        margin: 2px;
+        display: inline-block;
+        background: url(/Scripts/images/icon-virtual-machines.png ) no-repeat;
+}
+
+.iconSubNet {
+        width: 20px;
+        height: 20px;
+        margin: 2px;
+        display: inline-block;
+        background: url(/Scripts/images/virtual-network.png) no-repeat;
+}
+
+.iconAzure {
+        width: 20px;
+        height: 20px;
+        margin: 2px;
+        display: inline-block;
+        background: url(/Scripts/images/IcoAzure.png ) no-repeat;
+        background-size: cover;
+        margin-top: -5px;
+        margin-bottom: -5px;
+}
+
+
+.iconHW {
+        width: 20px;
+        height: 20px;
+        margin: 2px;
+        display: inline-block;
+        background: url(/Scripts/images/icoHuaWei.ico ) no-repeat;
+        margin-top: -5px;
+        margin-bottom: -5px;
+}
+
+.iconGA {
+        width: 20px;
+        height: 20px;
+        margin: 2px;
+        display: inline-block;
+        background: url(/Scripts/images/icoGA.png ) no-repeat;
+        background-size: cover;
+        margin-top: -5px;
+        margin-bottom: -5px;
+}
+
+.iconNormal {
+        width: 25px;
+        height: 24px;
+        display: inline-table;
+        background: url(/Scripts/images/normal.png) no-repeat;
+        background-size: 89%;
+}
+
+.iconAbnormal {
+        width: 25px;
+        height: 24px;
+        display: inline-table;
+        background: url(/Scripts/images/abnormal.png) no-repeat;
+        background-size: 89%;
+}
+
+.iconWarning {
+        width: 25px;
+        height: 24px;
+        display: inline-table;
+        background: url(/Scripts/images/warning.png) no-repeat;
+        background-size: 89%;
+}
+
+#exportDiv {
+        display: block;
+        background: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 5px #ddd;
+        width: 90% !important;
+        min-width: 800px;
+        margin-top: 50px;
+        margin-left: 50px;
+        padding: 20px;
+}
+
+        #exportDiv h1 {
+                margin-top: 50px;
+        }
+
+.export_divide {
+        margin-bottom: 400px;
+}
+
+.userhelp_btn {
+        display: block;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 40px;
+        line-height: 40px;
+        color: #fff;
+        padding: 0 12px;
+        cursor: pointer;
+}
+
+        .userhelp_btn:hover {
+                background: #43627F;
+                border-bottom: 1px solid #82a6c5;
+                color: #fff;
+        }
+
+.nation_flag {
+        font-size: 12px;
+        padding: 0 5px;
+}
+
+        .nation_flag:hover {
+                cursor: pointer;
+                text-decoration: underline;
+        }
+
+        .nation_flag > img {
+                position: static;
+                width: 20px;
+                margin-right: 5px;
+        }
+
+.nyam_overview_bill_casetop {
+        display: block;
+        width: 130px;
+        height: 37px;
+        margin: 5px 10px;
+        line-height: 34px;
+        padding: 0 25px;
+        border-radius: 3px;
+        color: #bbb;
+        border: 0;
+        text-align: center;
+        /* background: rgba(0, 0, 0, 0.25); */
+        /* background: url(../images/casecheckiconbg.png) no-repeat right center #43627F; */
+}
+
+        .nyam_overview_bill_casetop:hover {
+                color: #e6e6e6;
+                font-weight: bold;
+                cursor: pointer;
+        }
+
+.nyam_overview_bill_casetop_check {
+        font-weight: bold;
+        color: #fff;
+        border: 1px solid #d2d2d2;
+        background: url('../images/casecheckicon.png') no-repeat right center;
+}
+
+        .nyam_overview_bill_casetop_check:hover {
+                /*background: url('../images/casecheckicon_hover.png') no-repeat right center;*/
+        }
+/*.ny_case_table {
+    border-collapse: collapse !important;
+}
+
+    .ny_case_table td {
+        background: #fff !important;
+    }*/
+.nyam_unbuy_div {
+        width: 100%;
+        padding: 20px;
+}
+
+.nyam_unbuy_div_top {
+        font-size: 16px;
+        /*border:1px solid #d2d2d2;
+    padding:20px 10px;
+    background:#fff;*/
+}
+
+.nyam_unbuy_div_top_left {
+        padding-left: 20px;
+}
+
+.nyam_unbuy_div_top_right {
+        margin-left: 100px;
+        padding: 10px;
+        margin-bottom: 0;
+}
+
+        .nyam_unbuy_div_top_right p {
+                line-height: 25px;
+        }
+
+                .nyam_unbuy_div_top_right p:first-child {
+                        font-weight: bold;
+                        font-size: 20px;
+                }
+
+.nyam_unbuy_div_con {
+        border: 1px solid #d2d2d2;
+        background: #fff;
+        padding: 0 20px 20px 20px;
+}
+
+.nyam_unbuy_div_con_title {
+}
+
+        .nyam_unbuy_div_con_title span {
+                display: inline-block;
+                padding: 0 20px;
+                border-bottom: 3px solid #698199;
+                line-height: 40px;
+                font-weight: bold;
+        }
+
+.ny_gobackbtn {
+        cursor: pointer;
+        color: #333;
+        background-color: #fff;
+}
+
+input.ny_gobackbtn {
+        padding-left: 33px;
+        color: #333;
+        background: url('../images/goback_btnbg.png') no-repeat 10px center #fff;
+}
+
+        input.ny_gobackbtn:hover, input.ny_gobackbtn:focus {
+                background-color: none;
+                text-decoration: none;
+                color: #333;
+                background: url('../images/goback_btnbg.png') no-repeat 10px center #e6e6e6;
+        }
+
+
+.ny_gobackbtn i {
+        margin-right: 10px;
+}
+
+.ny_VMstepul {
+        list-style: none;
+        margin: 20px;
+}
+
+.ny_VMstepdiv {
+        margin-bottom: 20px;
+}
+
+.ny_VMstep {
+        border: 1px solid #d2d2d2;
+        border-radius: 5px;
+        padding: 20px;
+        padding-top: 10px;
+}
+
+.ny_VMstepul .ny_VMstep:after {
+        display: block;
+        height: 21px;
+        width: 21px;
+        content: "";
+        position: absolute;
+        right: -12px;
+        top: 38%;
+}
+
+.ny_VMstep h4 {
+        border-bottom: 1px solid #d2d2d2;
+        padding-bottom: 5px;
+        font-weight: bold;
+        color: #43627F;
+        font-size: 16px;
+}
+
+.ny_VMstepul li:nth-child(4n) .ny_VMstep:after {
+        display: none;
+}
+
+.ny_VMstepul li:nth-child(5n) .ny_VMstep:before {
+        display: block;
+        height: 21px;
+        width: 21px;
+        content: "";
+        position: absolute;
+        left: -9px;
+        top: 38%;
+}
+
+.ny_VMstepul li:last-child .ny_VMstep:after {
+        display: none;
+}
+
+.ny_sys_config {
+        margin-top: 5px;
+        padding: 0px;
+        padding-bottom: 20px;
+        padding-top: 5px;
+        overflow: auto;
+}
+
+        .ny_sys_config table {
+                width: 100% !important;
+        }
+
+        .ny_sys_config h4 {
+                font-size: 16px;
+                margin: 0;
+        }
+
+                .ny_sys_config h4 span {
+                        display: inline-block;
+                        height: 35px;
+                        line-height: 35px;
+                }
+
+.ny_sys_config_add {
+        border: 1px solid #ddd;
+        border-top: 0;
+}
+
+
+.nyam_outlay {
+        position: fixed;
+        top: 49px;
+        right: 0;
+        z-index: 101;
+        padding: 0;
+        background: #ffffff;
+}
+
+        .nyam_outlay > .box_minheight {
+                box-shadow: 0 0 10px #b6b6b6;
+                overflow: auto;
+                height: 0;
+        }
+
+
+
+.nyam_operatebtn {
+        display: inline-block;
+        border: 1px solid #d2d2d2;
+        color: #333;
+        line-height: 35px;
+        height: 35px;
+        padding: 0 20px;
+        margin: 0 5px;
+        background: #fff;
+}
+
+.nyam_btn {
+        border-radius: 0 !important;
+        text-align: center;
+}
+
+.antivirus_div {
+        padding: 20px;
+        border: 1px solid #d2d2d2;
+        margin: 20px;
+        background: #f6f6f6;
+}
+
+        .antivirus_div h5 {
+                text-align: right;
+                font-weight: bold;
+                margin: 3px;
+                line-height: 21px;
+                margin-right: -10px;
+        }
+
+        .antivirus_div .antivirus_con {
+                margin: 3px;
+                line-height: 21px;
+        }
+
+.config_choose_div {
+        border: 1px solid #d2d2d2;
+        min-height: 225px;
+        padding: 20px;
+        margin-bottom: 20px;
+        position: relative;
+}
+
+        .config_choose_div span {
+                padding-top: 12px;
+                display: block;
+                margin-left: 138px;
+                float: left;
+                text-indent: 2em;
+        }
+
+.config_choose_div_left {
+        background-image: url('../images/ServiceConfig-auto.png');
+        background-repeat: no-repeat;
+        background-position: 20px 20px;
+}
+
+.config_choose_div_right {
+        background-image: url('../images/ServiceConfig.png');
+        background-repeat: no-repeat;
+        background-position: 20px 25px;
+        background-size: 25%;
+}
+
+.config_choose_div a {
+        margin-top: 20px;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        width: auto;
+}
+
+.resapple_spanT {
+        display: inline-block;
+        padding: 0 5px;
+        border-radius: 3px;
+        border: 1px solid #d2d2d2;
+        margin-bottom: 3px;
+        background-color: #e8ffeb;
+        color: #333;
+        font-weight: normal;
+        cursor: pointer;
+}
+
+.resapple_spanF {
+        display: inline-block;
+        padding: 0 5px;
+        border-radius: 3px;
+        border: 1px solid #d2d2d2;
+        margin-bottom: 3px;
+        background-color: #ffafaf;
+        color: #333;
+        font-weight: normal;
+        cursor: pointer;
+}
+
+.tblist .checkbox label {
+        height: 13px;
+        min-height: 13px;
+}
+
+.tblist .checkbox {
+        width: 13px;
+        margin-left: 5px;
+        display: inline-block;
+        margin-top: 0;
+        margin-bottom: 0;
+}
+
+.policy_block {
+        margin: 0px;
+        background: #f3f3f3;
+        margin-top: 15px;
+        padding: 10px 0;
+}
+
+        .policy_block h5 {
+                margin: 10px 15px;
+                padding-bottom: 10px;
+                /*font-size: 14px;*/
+                font-weight: bold;
+                border-bottom: 1px solid #e5e5e5;
+                color: #8b8b8b;
+        }
+
+        .policy_block .form-group {
+                margin-bottom: 15px;
+        }
+
+        .policy_block .form-control {
+                width: 100%;
+        }
+
+        .policy_block label {
+                height: auto;
+                line-height: initial;
+                padding: 0;
+        }
+
+.radio-inline {
+        padding: 0 0 0 20px !important;
+}
+
+
+.policydetail_title strong {
+        color: #646464;
+        font-weight: normal;
+}
+.policydetail_title {
+        margin-bottom:10px;
+}
