@@ -22,7 +22,7 @@ export function createIoThub(resourceGroupName, resourceName, data) {
 }
 
 export function deleteIoThub(resourceGroupName, resourceName) {
-  return axios.delete(`api/iothubresource/delete/${resourceGroupName}/${resourceName}`);
+  return axios.post(`api/iothubresource/delete/${resourceGroupName}/${resourceName}`);
 }
 
 export function createRecourceGroup(resourceGroupName, location) {
@@ -31,4 +31,32 @@ export function createRecourceGroup(resourceGroupName, location) {
 
 export function getIoThub (resourceGroupName, resourceName) {
   return axios.get(`api/iothubresource/getiothubinfo/${resourceGroupName}/${resourceName}`);
+}
+
+export function getIoThubKeys (resourceGroupName, resourceName) {
+  return axios.post(`api/iothubresource/getiothubkeys/${resourceGroupName}/${resourceName}`)
+}
+
+export function getDevices (data) {
+  return axios.post(`api/iothubresource/device/getdevices/100`, data)
+}
+
+export function deleteDevice (deviceId, data) {
+  return axios.post(`api/iothubresource/device/deletedevice/${deviceId}`, data)
+}
+
+export function createDevice (deviceId, data) {
+  return axios.post(`api/iothubresource/device/createdevice/${deviceId}`, data)
+}
+
+export function getDeviceKey (deviceId, data) {
+  return axios.post(`api/iothubresource/device/getdevicekey/${deviceId}`, data)
+}
+
+export function getDeviceTwin (deviceId, data) {
+  return axios.post(`api/iothubresource/device/getdevicetwin/${deviceId}`, data)
+}
+
+export function createEdge (deviceId, data) {
+  return axios.post(`api/iothubresource/device/createiotedgedevice/${deviceId}`, data)
 }

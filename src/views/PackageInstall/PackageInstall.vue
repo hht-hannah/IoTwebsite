@@ -16,6 +16,8 @@
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="installAZ()">安装</el-button>
+            <el-button type="primary" @click="installAZ()">更新</el-button>
+            <el-button type="danger" @click="installAZ()">卸载</el-button>
           </el-form-item>
         </el-form>
         <p>版本信息: </p>

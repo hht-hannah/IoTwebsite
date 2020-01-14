@@ -1,9 +1,13 @@
 <template>
   <div class="form-container">
+    <el-breadcrumb separator=">">
+      <el-breadcrumb-item :to="{ path: '/AKSDashboard' }">AKS</el-breadcrumb-item>
+    </el-breadcrumb>
     <h3 class="page-title">AKS</h3>
     <div class="search-container">
     <el-input  class='input-box' placeholder="请输入内容" v-model="input" clearable></el-input>
     <el-button>搜索</el-button>
+    <el-button type="primary">添加</el-button>
     </div>
     <el-table
       ref="multipleTable"
@@ -14,20 +18,21 @@
       <el-table-column type="selection" width="55"></el-table-column>
       <el-table-column label="名称" width="150">
         <template slot-scope="scope">
-          <router-link class="hide-underline" :to="`IoTHub/${scope.row.name}`">{{ scope.row.name }}</router-link>
+          <router-link class="hide-underline" :to="`AKSDashboard/${scope.row.name}`">{{ scope.row.name }}</router-link>
         </template>
       </el-table-column>
       <el-table-column prop="type" label="类型" width="120" sortable></el-table-column>
       <el-table-column prop="resourceGroup" label="资源组" width="150" sortable></el-table-column>
       <el-table-column prop="location" label="位置" width="120" sortable></el-table-column>
-      <el-table-column prop="subscribe" label="订阅" show-overflow-tooltip sortable></el-table-column>
+      <el-table-column prop="subscribe" label="订阅" sortable></el-table-column>
+      <el-table-column label="操作"  show-overflow-tooltip>
+        <template slot-scope="scope">
+          <router-link class="hide-underline" :to="`IoTHub/${scope.row.name}`"> <el-button size="mini">编辑</el-button> </router-link>
+          <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+        </template>
+      </el-table-column>
     </el-table>
-    <div class="button-container">
-      <router-link to="/CreateCluster">
-        <el-button type="primary">添加</el-button>
-      </router-link>
-        <el-button type="danger">删除</el-button>
-    </div>
+    <div class="button-container"></div>
   </div>
 </template>
 
@@ -71,7 +76,6 @@ export default {
 
 <style scoped>
 .el-table {
-  margin-left: 40px;
   margin-top: 20px;
   display: inline-block;
   width: 90%;
@@ -79,22 +83,23 @@ export default {
 
 .page-title {
   color: #48576a;
-  margin-left: 40px;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .input-box {
   color: #48576a;
-  margin-left: 40px;
   width: 300px;
 }
 
 .button-container {
-  margin-left: 40px;
   margin-top: 40px;
 }
 
 .hide-underline {
   text-decoration: none;
+}
+
+.form-container {
+  margin-left: 40px;
 }
 </style>

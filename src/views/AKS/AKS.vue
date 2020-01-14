@@ -1,10 +1,10 @@
 <template>
   <div class="router-container">
     <el-breadcrumb separator=">">
-      <el-breadcrumb-item :to="{ path: '/IoTHubDashboard' }">IoT中心</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{ path: '/AKSDashboard' }">AKS</el-breadcrumb-item>
       <el-breadcrumb-item>{{$route.params.name}}</el-breadcrumb-item>
     </el-breadcrumb>
-    <h3 class="page-title">{{$route.params.name}} - IoT中心</h3>
+    <h3 class="page-title">{{$route.params.name}} - AKS</h3>
 
     <el-row>
       <el-col :span="12">
@@ -155,19 +155,9 @@
 </template>
 
 <script>
-import IoTDeviceDashboard from "./IoTDeviceDashboard.vue";
-import IoTEdgeDashboard from "./IoTEdgeDashboard.vue";
-import IoTEdgeDeploy from "./IoTEdgeDeploy.vue";
-import SharePolicyDashboard from "./SharePolicyDashboard.vue";
-import { listbysubid, getIoThub, createIoThub, getIoThubKeys } from "@/api/api.js";
 
 export default {
-  components: {
-    IoTDeviceDashboard,
-    IoTEdgeDashboard,
-    IoTEdgeDeploy, 
-    SharePolicyDashboard,
-  },
+  components: {},
   data() {
     this.chartSettings = {
       metrics: ["访问用户", "下单用户"],

@@ -12,6 +12,7 @@ import IoTEdge from '../views/IoTHub/IoTEdge.vue'
 import ResourceGroup from '../views/ResourceGroup/ResourceGroup.vue'
 import PackageInstall from '../views/PackageInstall/PackageInstall.vue'
 import DigitalTwin from '../views/IoTHub/DigitalTwin.vue'
+import AKS from '../views/AKS/AKS.vue'
 
 Vue.use(Router)
 
@@ -91,6 +92,12 @@ const router = new Router({
 				path: '/AKSDashboard',
 				name: 'AKSDashboard',
 				component: AKSDashboard,
+				meta: {requireAuth: true}
+			},
+			{
+				path: '/AKSDashboard/:name',
+				name: 'AKS',
+				component: AKS,
 				meta: {requireAuth: true}
 			},
 			{

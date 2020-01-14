@@ -10,11 +10,12 @@
     <el-button>保存</el-button>
     <br />
     <br />
-    <textarea type="textarea" :rows="8" v-model="content"></textarea>
+    <textarea type="textarea" :rows="25" v-model="content"></textarea>
   </div>
 </template>
 
 <script>
+import {getDeviceTwin} from  "@/api/api.js";
 export default {
   components: {},
   data() {
@@ -27,8 +28,19 @@ export default {
   watch: {},
 
   async mounted() {
-    var obj = { hello: "world", Test: ["hello"] };
-    this.content = JSON.stringify(obj, null, 4);
+    this.content = JSON.stringify((await getDeviceTwin(this.$route.params.deviceID, {
+        hostName: this.$store.state.hostName,
+        sharedAccessKeyName: this.$store.state.accessKey.keyName,
+        sharedAccessKey: this.$store.state.accessKey.primaryKey
+      })).data, null, "\t")
+  },
+  computed: {
+    accessKey() {
+      return this.$store.state.accessKey;
+    },
+    hostName() {
+      return this.$store.state.hostName;
+    }
   }
 };
 </script>

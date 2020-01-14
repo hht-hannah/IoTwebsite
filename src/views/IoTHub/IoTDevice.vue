@@ -28,7 +28,7 @@
       <div class="entry-container">
         <span>
           <p class="entry-title">设备ID:</p>
-          {{$route.params.deviceID}}
+          {{deviceId}}
           <img
             src="../../assets/img/copy.png"
             alt="copy"
@@ -38,7 +38,7 @@
         <br />
         <span>
           <p class="entry-title">主连接字符串:</p>
-          {{}}
+          {{primaryKey}}
           <img src="../../assets/img/copy.png" alt="copy" v-clipboard:copy />
         </span>
         <br />
@@ -54,12 +54,36 @@
 </template>
 
 <script>
+import {getDeviceKey} from "@/api/api.js";
+
 export default {
   components: {},
   data() {
     return {
-      radio: "1"
+      radio: "1",
+      primaryKey: "",
+      deviceId: ""
     };
+  },
+
+
+  async mounted(){
+    var res = (await getDeviceKey(this.$route.params.deviceID, {
+        hostName: this.$store.state.hostName,
+        sharedAccessKeyName: this.$store.state.accessKey.keyName,
+        sharedAccessKey: this.$store.state.accessKey.primaryKey
+      }))
+      this.primaryKey = res.data.substring(res.data.indexOf('"PrimaryKey":')+13,res.data.indexOf(',"SecondaryKey":'))
+      this.deviceId = res.data.substring(11,res.data.indexOf(',"PrimaryKey":'));
+  },
+
+  computed: {
+    accessKey() {
+      return this.$store.state.accessKey;
+    },
+    hostName() {
+      return this.$store.state.hostName;
+    }
   }
 };
 </script>
