@@ -96,13 +96,6 @@ export default {
         });
       }
     },
-    // logout(){
-    //   // let sessionID=getCookie('userSessionID');
-    //   // signOut(sessionID);
-    //   delCookie('userSessionID');
-    //   localStorage.removeItem('userInfo');
-    //   this.$router.push('/login');
-    // },
     changeColor(color) {
       switch (color) {
         case "blue":
@@ -125,8 +118,8 @@ export default {
     }
   },
   // mounted() {
-  //   console.log("manman", getCookie("mainColor"));
-  //   console.log("manman", this.mainColor);
+  //   console.log(getCookie("mainColor"));
+  //   console.log(this.mainColor);
   // }
 };
 </script>

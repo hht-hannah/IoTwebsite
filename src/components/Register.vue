@@ -22,7 +22,7 @@
           >
             <el-input type="password" v-model="registerValidateForm.checkPass"></el-input>
         </el-form-item>
-          <el-form-item
+          <!-- <el-form-item
           prop="tenantID"
           label="Tenant ID"
           >
@@ -39,7 +39,7 @@
           label="Client Secret"
           >
             <el-input v-model="registerValidateForm.clientSecret"></el-input>
-          </el-form-item>
+          </el-form-item> -->
           <el-button @click="submitForm('registerValidateForm')">注册</el-button>
           <el-button @click="resetForm('registerValidateForm')">重置</el-button>
     </el-form>

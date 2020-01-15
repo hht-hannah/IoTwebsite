@@ -1,8 +1,20 @@
 <template scope='scope'>
   <div class="hello">
-    <h2>{{ msg }} {{ username }}</h2>
+    <h3 class="page-title">{{ msg }} {{ username }}</h3>
 
-    <!-- v-for在进行过度时，使用 transition-group 标签，使用后内层标签需要有独有的 key 值 -->
+    <el-card class="box-card">
+      <div class="text item">{{'tenantID: ' + tenantID }}</div>
+      <div class="text item">{{'clientID: ' + clientID }}</div>
+      <el-button> 查看权限 </el-button>
+    </el-card>
+
+    <el-card class="box-card">
+       <div class="text item">{{'tenantID: ' + tenantID }}</div>
+      <div class="text item">{{'clientID: ' + clientID }}</div>
+      <el-button> 查看权限 </el-button>
+    </el-card>
+
+    <!-- v-for在进行过度时，使用 transition-group 标签，使用后内层标签需要有独有的 key 值 这段可以列出所有的user-->
     <!-- <transition-group name="list-complete" tag="ul">
         <li v-for="(item, index) in user" :key="item._id" class="list-complete-item">
             {{ index+1 }}. {{ item.email }}
@@ -10,15 +22,12 @@
         </li>
     </transition-group>
     <br>
-    <el-button type="primary" @click="logout()">登出</el-button> -->
-    <el-button type="primary" @click="logout()">重置服务主体</el-button>
+    <el-button type="primary" @click="logout()">登出</el-button>-->
+    <el-button type="primary" @click="logout()">添加服务主体</el-button>
   </div>
 </template>
 
 <script>
-/**
- * @author: weakgoldfish
- */
 import * as types from "../store/types";
 import api from "../axios";
 export default {
@@ -90,9 +99,9 @@ export default {
 </script>
 
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
+.page-title {
+  color: #48576a;
+  margin-top: 20px;
 }
 
 ul {
@@ -128,4 +137,17 @@ a {
 .hello {
   margin-left: 40px;
 }
+
+  .text {
+    font-size: 16px;
+  }
+
+  .item {
+    padding: 18px 0;
+  }
+
+  .box-card {
+    width: 600px;
+    margin: 20px;
+  }
 </style>

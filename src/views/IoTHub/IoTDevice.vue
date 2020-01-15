@@ -18,8 +18,6 @@
         </el-button>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>重新生成主密钥</el-dropdown-item>
-          <el-dropdown-item>重新生成辅助密钥</el-dropdown-item>
-          <el-dropdown-item>交换密钥</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -37,9 +35,15 @@
         </span>
         <br />
         <span>
+          <p class="entry-title">主密钥:</p>
+          <el-input v-model="primaryKey" readonly></el-input>
+          <img src="../../assets/img/copy.png" alt="copy" v-clipboard:copy="this.primaryKey" />
+        </span>
+        <br />
+        <span>
           <p class="entry-title">主连接字符串:</p>
-          {{primaryKey}}
-          <img src="../../assets/img/copy.png" alt="copy" v-clipboard:copy />
+          <el-input v-model="connectionString" readonly> </el-input>
+          <img src="../../assets/img/copy.png" alt="copy" v-clipboard:copy="this.connectionString" />
         </span>
         <br />
         <span>
@@ -62,7 +66,8 @@ export default {
     return {
       radio: "1",
       primaryKey: "",
-      deviceId: ""
+      deviceId: "",
+      connectionString: "",
     };
   },
 
@@ -73,6 +78,7 @@ export default {
         sharedAccessKeyName: this.$store.state.accessKey.keyName,
         sharedAccessKey: this.$store.state.accessKey.primaryKey
       }))
+      this.connectionString = res.data.substring(res.data.indexOf('"PrimaryConnectionString":')+26, res.data.indexOf(',"SecondaryConnectionString":'));
       this.primaryKey = res.data.substring(res.data.indexOf('"PrimaryKey":')+13,res.data.indexOf(',"SecondaryKey":'))
       this.deviceId = res.data.substring(11,res.data.indexOf(',"PrimaryKey":'));
   },

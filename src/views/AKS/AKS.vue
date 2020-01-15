@@ -7,7 +7,7 @@
     <h3 class="page-title">{{$route.params.name}} - AKS</h3>
 
     <el-row>
-      <el-col :span="12">
+      <el-col :span="10">
         <div class="entry-container">
           <span>
             <p class="entry-title">资源组:</p>
@@ -59,12 +59,22 @@
             />
           </span>
           <br />
+          <span>
+            <p class="entry-title">AKS连接证书:</p>
+            {{basicinfo.connectionCertificate}}
+            <img
+              src="../../assets/img/copy.png"
+              alt="copy"
+              v-clipboard:copy="basicinfo.connectionCertificate"
+            />
+          </span>
+          <br />
         </div>
       </el-col>
-      <el-col :span="12">
+      <el-col :span="14">
         <div class="entry-container">
           <span>
-            <p class="entry-title">主机名:</p>
+            <p class="entry-title">Kubernetes版本:</p>
             {{basicinfo.hostname}}
             <img
               src="../../assets/img/copy.png"
@@ -74,46 +84,38 @@
           </span>
           <br />
           <span>
-            <p class="entry-title">定价及缩放级别:</p>
+            <p class="entry-title">API服务器地址:</p>
             {{basicinfo.sku.name}}
-            <el-button type="text" @click="changeSkuFormVisible = true">(更改)</el-button>
-            <el-dialog title="更改定价及缩放级别" :visible.sync="changeSkuFormVisible">
-              <el-form label-position="left" ref="changeSKU" :model="changeSKU" label-width="160px">
-                <el-form-item label="SKU">
-                  <el-select v-model="changeSKU.name" placeholder="请选择缩放层">
-                    <el-option label="S1: 标准层" value="S1"></el-option>
-                    <el-option label="S2: 标准层" value="S2"></el-option>
-                    <el-option label="S3: 标准层" value="S3"></el-option>
-                    <el-option label="B1: 基本层" value="B1"></el-option>
-                    <el-option label="B2: 基本层" value="B2"></el-option>
-                    <el-option label="B3: 基本层" value="B3"></el-option>
-                    <el-option label="F1: 免费层" value="F1"></el-option>
-                  </el-select>
-                </el-form-item>
-                <el-form-item>
-                  <el-button type="primary" @click="handleChangeName()">确认更改</el-button>
-                  <el-button @click="changeSkuFormVisible = false">取消</el-button>
-                </el-form-item>
-              </el-form>
-            </el-dialog>
-            <img src="../../assets/img/copy.png" alt="copy" v-clipboard:copy="basicinfo.skuname" />
+            <img
+              src="../../assets/img/copy.png"
+              alt="copy"
+              v-clipboard:copy="basicinfo.skuname"
+            />
           </span>
           <br />
           <span>
-            <p class="entry-title">IoT中心单元数量:</p>
+            <p class="entry-title">HTTP应用程序路由域:</p>
             {{basicinfo.sku.capacity}}
-            <el-button type="text" @click="changeCountFormVisible = true">(更改)</el-button>
-            <el-dialog title="更改IoT中心单元数量" :visible.sync="changeCountFormVisible">
-              <el-form label-position="left" ref="changeSKU" :model="changeSKU" label-width="160px">
-                <el-form-item label="IoT中心单元数量">
-                  <el-input v-model="changeSKU.count" placeholder="填写新的数量"></el-input>
-                </el-form-item>
-                <el-form-item>
-                  <el-button type="primary" @click="handleChangeCount()">确认更改</el-button>
-                  <el-button @click="changeCountFormVisible = false">取消</el-button>
-                </el-form-item>
-              </el-form>
-            </el-dialog>
+            <img
+              src="../../assets/img/copy.png"
+              alt="copy"
+              v-clipboard:copy="basicinfo.skucapacity"
+            />
+          </span>
+          <br />
+          <span>
+            <p class="entry-title">总内核数:</p>
+            {{basicinfo.sku.capacity}}
+            <img
+              src="../../assets/img/copy.png"
+              alt="copy"
+              v-clipboard:copy="basicinfo.skucapacity"
+            />
+          </span>
+          <br />
+          <span>
+            <p class="entry-title">内存总量:</p>
+            {{basicinfo.sku.capacity}}
             <img
               src="../../assets/img/copy.png"
               alt="copy"
@@ -126,44 +128,66 @@
     </el-row>
 
     <el-tabs tab-position="left" v-model="activeName">
-      <el-tab-pane label="共享访问策略">
-        <SharePolicyDashboard
-          v-if="load"
-          :name="$route.params.name"
-          :resourcegroup="basicinfo.resourcegroup"
-        ></SharePolicyDashboard>
+      <el-tab-pane label="见解">
+        <el-select v-model="value" placeholder="请选择" @change="reload()">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          ></el-option>
+        </el-select>
+        <!-- v-if 根据选择现实button-group-->
+        <el-button-group v-if="value=='节点 CPU 利用率百分比' || value=='节点内存利用率百分比'">
+          <el-button>平均</el-button>
+          <el-button>最小</el-button>
+          <el-button>50%</el-button>
+          <el-button>90%</el-button>
+          <el-button>95%</el-button>
+          <el-button>最大</el-button>
+        </el-button-group>
+        <el-button-group v-if="value=='节点计数'">
+          <el-button>总计</el-button>
+          <el-button>就绪</el-button>
+          <el-button>未就绪</el-button>
+        </el-button-group>
+        <el-button-group v-if="value=='活动 pod 计数'">
+          <el-button>总计</el-button>
+          <el-button>挂起</el-button>
+          <el-button>正在运行</el-button>
+          <el-button>未知</el-button>
+          <el-button>成功</el-button>
+          <el-button>失败</el-button>
+        </el-button-group>
+        <AKSChart v-bind:title="value" v-if="update"></AKSChart>
       </el-tab-pane>
-      <el-tab-pane label="IoT设备">
-        <IoTDeviceDashboard
-         v-if="load"
-         :hostName="$store.state.hostName"
-         :sharedAccessKeyName="$store.state.accessKey.keyName"
-         :sharedAccessKey ="$store.state.accessKey.primaryKey"
-         ></IoTDeviceDashboard>
+      <el-tab-pane label="日志">
+        <!-- 添加日志的部分 -->
       </el-tab-pane>
-      <el-tab-pane label="IoT Edge设备">
-        <IoTEdgeDashboard></IoTEdgeDashboard>
+      <el-tab-pane label="布置容器">
+        <DeployContainer></DeployContainer>
       </el-tab-pane>
-      <el-tab-pane label="IoT Edge部署">
-        <IoTEdgeDeploy></IoTEdgeDeploy>
-      </el-tab-pane>
-      <el-tab-pane label="指标" name="chart">
-        <ve-line width="600px" :data="chartData" :settings="chartSettings" ref="chart"></ve-line>
+      <el-tab-pane label="仪表盘">
+        <!-- 有链接的话吧src给替换掉 -->
+        <iframe src="https://www.baidu.com"></iframe>
       </el-tab-pane>
     </el-tabs>
   </div>
 </template>
 
 <script>
+import AKSChart from "./AKSChart.vue";
+import DeployContainer from "./DeployContainer.vue";
 
 export default {
-  components: {},
+  components: { AKSChart, DeployContainer },
   data() {
     this.chartSettings = {
       metrics: ["访问用户", "下单用户"],
       dimension: ["日期"]
     };
     return {
+      update: true,
       load: false,
       activeName: "",
       changeCountFormVisible: false,
@@ -176,7 +200,8 @@ export default {
         subscribe: "",
         subscribeID: "",
         hostname: "",
-        sku: ""
+        sku: "",
+        connectionCertificate: ""
       },
       changeSKU: {
         name: "",
@@ -184,127 +209,37 @@ export default {
         count: 1
       },
 
-      chartData: {
-        columns: ["日期", "访问用户", "下单用户", "下单率"],
-        rows: [
-          { 日期: "1/1", 访问用户: 1393, 下单用户: 1093, 下单率: 0.32 },
-          { 日期: "1/2", 访问用户: 3530, 下单用户: 3230, 下单率: 0.26 },
-          { 日期: "1/3", 访问用户: 2923, 下单用户: 2623, 下单率: 0.76 },
-          { 日期: "1/4", 访问用户: 1723, 下单用户: 1423, 下单率: 0.49 },
-          { 日期: "1/5", 访问用户: 3792, 下单用户: 3492, 下单率: 0.323 },
-          { 日期: "1/6", 访问用户: 4593, 下单用户: 4293, 下单率: 0.78 }
-        ]
-      }
+      options: [
+        {
+          value: "节点 CPU 利用率百分比",
+          label: "节点 CPU 利用率百分比"
+        },
+        {
+          value: "节点内存利用率百分比",
+          label: "节点内存利用率百分比"
+        },
+        {
+          value: "节点计数",
+          label: "节点计数"
+        },
+        {
+          value: "活动 pod 计数",
+          label: "活动 pod 计数"
+        }
+      ],
+      value: ""
     };
   },
   methods: {
-    async handleChangeCount() {
-      var response = await createIoThub(
-        this.basicinfo.resourcegroup,
-        this.$route.params.name,
-        {
-          name: this.$route.params.name,
-          location: this.basicinfo.location,
-          sku: {
-            name: this.basicinfo.sku.name,
-            tier: this.basicinfo.sku.tier,
-            capacity: this.changeSKU.count
-          }
-        }
-      );
-      if (response.data == "success") {
-        this.$message({
-          message: "更改成功",
-          type: "success"
-        });
-        this.changeCountFormVisible = false;
-        this.basicinfo.sku = (await getIoThub(
-          this.basicinfo.resourcegroup,
-          this.$route.params.name
-        )).data.sku;
-        this.changeSKU.count = this.basicinfo.sku.capacity;
-      } else {
-        this.$message.error("更改失败");
-      }
-    },
-
-    async handleChangeName() {
-      if (this.changeSKU.name == "S1" || "S2" || "S3") {
-        this.changeSKU.tier = "Standard";
-      } else if (this.changeSKU.name == "B1" || "B2" || "B3") {
-        this.changeSKU.tier = "Basic";
-      } else if (this.changeSKU.name == "F1") {
-        this.changeSKU.tier = "Free";
-      }
-      var response = await createIoThub(
-        this.basicinfo.resourcegroup,
-        this.$route.params.name,
-        {
-          name: this.$route.params.name,
-          location: this.basicinfo.location,
-          sku: {
-            name: this.changeSKU.name,
-            tier: this.changeSKU.tier,
-            capacity: this.basicinfo.sku.capacity
-          }
-        }
-      );
-      if (response.data == "success") {
-        this.$message({
-          message: "更改成功",
-          type: "success"
-        });
-        this.changeCountFormVisible = false;
-        this.basicinfo.sku = (await getIoThub(
-          this.basicinfo.resourcegroup,
-          this.$route.params.name
-        )).data.sku;
-        this.changeSKU.name = this.basicinfo.sku.name;
-      } else {
-        this.$message.error("更改失败");
-      }
-    }
-  },
-
-  watch: {
-    activeName(v) {
-      this.$nextTick(_ => {
-        this.$refs[`chart`].echarts.resize();
+    reload() {
+      this.update = false;
+      this.$nextTick(() => {
+        this.update = true;
       });
-    },
+    }
   },
 
-  async mounted() {
-    this.tableData = (await listbysubid()).data;
-    for (var i = 0; i < this.tableData.length; i++) {
-      if (this.tableData[i]) {
-        if (this.tableData[i].name.indexOf(this.$route.params.name) > -1) {
-          this.basicinfo.resourcegroup = this.tableData[i].resourcegroup;
-          break;
-        }
-      }
-    }
-    var res = await getIoThub(
-      this.basicinfo.resourcegroup,
-      this.$route.params.name
-    );
-    this.basicinfo.location = res.data.location;
-    this.basicinfo.subscribe = res.data.type;
-    this.basicinfo.subscribeID = res.data.subscriptionid;
-    this.basicinfo.state = res.data.properties.state;
-    this.basicinfo.hostname = res.data.properties.hostName;
-    this.basicinfo.sku = res.data.sku;
-    this.changeSKU.count = this.basicinfo.sku.capacity;
-    this.changeSKU.name = this.basicinfo.sku.name;
-
-    this.$store.state.accessKey = (await getIoThubKeys(
-      this.basicinfo.resourcegroup,
-      this.$route.params.name
-    )).data.value[0];
-    this.$store.state.hostName= this.basicinfo.hostname;
-
-    this.load = true;
-  }
+  async mounted() {}
 };
 </script>
 
@@ -333,7 +268,7 @@ export default {
 
 .entry-title {
   display: inline-block;
-  width: 140px;
+  width: 160px;
   height: 10px;
 }
 
@@ -344,5 +279,14 @@ export default {
 
 img {
   width: 14px;
+}
+
+iframe {
+  width: 100%;
+  height: 600px;
+}
+
+.el-select {
+  margin: 20px;
 }
 </style>

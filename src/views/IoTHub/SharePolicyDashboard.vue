@@ -42,6 +42,14 @@
             v-clipboard:copy="form.displaySecondaryKey"
           />
         </el-form-item>
+        <el-form-item label="链接字符串" label-width="100px">
+          <el-input v-model="form.connectionString" auto-complete="off" readonly></el-input>
+            <img
+            src="../../assets/img/copy.png"
+            alt="copy"
+            v-clipboard:copy="form.connectionString"
+          />
+        </el-form-item>
         <el-form-item label="权限" label-width="100px">
           <el-input v-model="form.displayRights" auto-complete="off" readonly></el-input>
           <img
@@ -72,6 +80,7 @@ export default {
         title: "",
         displayPrimaryKey: "",
         displaySecondaryKey: "",
+        connectionString: "",
         displayRights: "",
       },
       dialogFormVisible: false,
@@ -91,6 +100,7 @@ export default {
       this.form.displaySecondaryKey = keyName.secondaryKey;
       this.form.displayRights = keyName.rights;
       this.form.title = keyName.keyName + " - 共享访问策略";
+      this.form.connectionString = "HostName="+this.$store.state.hostName+";SharedAccessKeyName="+keyName.keyName+";SharedAccessKey="+keyName.primaryKey;
     }
   },
   async mounted() {

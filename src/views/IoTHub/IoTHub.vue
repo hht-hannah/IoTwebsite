@@ -147,8 +147,9 @@
       <el-tab-pane label="IoT Edge部署">
         <IoTEdgeDeploy></IoTEdgeDeploy>
       </el-tab-pane>
-      <el-tab-pane label="指标" name="chart">
-        <ve-line width="600px" :data="chartData" :settings="chartSettings" ref="chart"></ve-line>
+      <el-tab-pane label="指标">
+        <!-- <ve-line width="600px" :data="chartData" :settings="chartSettings" ref="chart"></ve-line> -->
+        <IoTHubChart> </IoTHubChart>
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -160,6 +161,7 @@ import IoTEdgeDashboard from "./IoTEdgeDashboard.vue";
 import IoTEdgeDeploy from "./IoTEdgeDeploy.vue";
 import SharePolicyDashboard from "./SharePolicyDashboard.vue";
 import { listbysubid, getIoThub, createIoThub, getIoThubKeys } from "@/api/api.js";
+import IoTHubChart from './IoTHubChart.vue'
 
 export default {
   components: {
@@ -167,12 +169,9 @@ export default {
     IoTEdgeDashboard,
     IoTEdgeDeploy, 
     SharePolicyDashboard,
+    IoTHubChart
   },
   data() {
-    this.chartSettings = {
-      metrics: ["访问用户", "下单用户"],
-      dimension: ["日期"]
-    };
     return {
       load: false,
       activeName: "",
@@ -193,18 +192,6 @@ export default {
         tier: "",
         count: 1
       },
-
-      chartData: {
-        columns: ["日期", "访问用户", "下单用户", "下单率"],
-        rows: [
-          { 日期: "1/1", 访问用户: 1393, 下单用户: 1093, 下单率: 0.32 },
-          { 日期: "1/2", 访问用户: 3530, 下单用户: 3230, 下单率: 0.26 },
-          { 日期: "1/3", 访问用户: 2923, 下单用户: 2623, 下单率: 0.76 },
-          { 日期: "1/4", 访问用户: 1723, 下单用户: 1423, 下单率: 0.49 },
-          { 日期: "1/5", 访问用户: 3792, 下单用户: 3492, 下单率: 0.323 },
-          { 日期: "1/6", 访问用户: 4593, 下单用户: 4293, 下单率: 0.78 }
-        ]
-      }
     };
   },
   methods: {
@@ -276,13 +263,13 @@ export default {
     }
   },
 
-  watch: {
-    activeName(v) {
-      this.$nextTick(_ => {
-        this.$refs[`chart`].echarts.resize();
-      });
-    },
-  },
+  // watch: {
+  //   activeName(v) {
+  //     this.$nextTick(_ => {
+  //       this.$refs[`chart`].echarts.resize();
+  //     });
+  //   },
+  // },
 
   async mounted() {
     this.tableData = (await listbysubid()).data;

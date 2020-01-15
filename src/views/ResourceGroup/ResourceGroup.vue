@@ -41,7 +41,6 @@
         </template>
       </el-table-column>
       <el-table-column prop="location" label="位置" show-overflow-tooltip sortable></el-table-column>
-      <!-- <el-table-column prop="id" label="订阅" show-overflow-tooltip sortable></el-table-column> -->
     </el-table>
   </div>
 </template>
