@@ -3,7 +3,7 @@
     class="el-menu-demo navigation-container"
     mode="horizontal"
     @select="handleSelect"
-    :background-color="mainColor"
+    :background-color=mainColor
     text-color="#fff"
     active-text-color="#ffffff"
   >
@@ -20,7 +20,6 @@
           <el-dropdown-item @click.native="changeColor('blue')">蓝色</el-dropdown-item>
           <el-dropdown-item @click.native="changeColor('orange')">橙色</el-dropdown-item>
           <el-dropdown-item @click.native="changeColor('red')">红色</el-dropdown-item>
-          <el-dropdown-item @click.native="changeColor('black')">黑色</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </el-menu-item>
@@ -28,7 +27,7 @@
       <el-dropdown trigger="click">
         <span class="el-dropdown-link">
           <!-- <img src="../assets/img/yonghu.svg" />-->
-          {{username}} 
+          {{username}}
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
@@ -61,7 +60,7 @@ export default {
   mounted() {
     // this.get_User();
     this.username = localStorage.getItem("username");
-    console.log(this.username)
+    console.log(this.username);
   },
   methods: {
     handleSelect(key, keyPath) {
@@ -97,9 +96,11 @@ export default {
       }
     },
     changeColor(color) {
+      console.log(document.getElementsByClassName("el-menu")[0]);
       switch (color) {
         case "blue":
-          changeMainColor("#409EFF");
+          changeMainColor("#33CCFF");
+          // document.getElementsByClassName("el-menu")[0].style.background = '#33CCFF'
           window.location.reload();
           break;
         case "orange":
@@ -110,17 +111,13 @@ export default {
           changeMainColor("#F56C6C");
           window.location.reload();
           break;
-        case "black":
-          changeMainColor("rgb(48, 49, 51)");
-          window.location.reload();
-          break;
       }
     }
   },
-  // mounted() {
-  //   console.log(getCookie("mainColor"));
-  //   console.log(this.mainColor);
-  // }
+  mounted() {
+    console.log(getCookie("mainColor"));
+    console.log(this.mainColor);
+  }
 };
 </script>
 

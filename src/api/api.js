@@ -38,7 +38,11 @@ export function getIoThubKeys (resourceGroupName, resourceName) {
 }
 
 export function getDevices (data) {
-  return axios.post(`api/iothubresource/device/getdevices/100`, data)
+  return axios.post(`api/iothubresource/device/getiotdevices/`, data)
+}
+
+export function getEdgeDevices (data) {
+  return axios.post(`api/iothubresource/device/getiotedgedevices/`, data)
 }
 
 export function deleteDevice (deviceId, data) {

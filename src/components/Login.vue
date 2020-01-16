@@ -134,11 +134,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.el-col {
-  // margin-bottom:
-}
-
+<style lang="scss" scoped>
 .el-tabs{
     width: 70%;
     .el-tabs__item {

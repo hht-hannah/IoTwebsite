@@ -125,7 +125,7 @@
       </el-col>
     </el-row>
 
-    <el-tabs tab-position="left" v-model="activeName">
+    <el-tabs tab-position="left" v-model="activeName"  @tab-click="showPane=true">
       <el-tab-pane label="共享访问策略">
         <SharePolicyDashboard
           v-if="load"
@@ -135,14 +135,14 @@
       </el-tab-pane>
       <el-tab-pane label="IoT设备">
         <IoTDeviceDashboard
-         v-if="load"
+         v-if="showPane"
          :hostName="$store.state.hostName"
          :sharedAccessKeyName="$store.state.accessKey.keyName"
          :sharedAccessKey ="$store.state.accessKey.primaryKey"
          ></IoTDeviceDashboard>
       </el-tab-pane>
       <el-tab-pane label="IoT Edge设备">
-        <IoTEdgeDashboard></IoTEdgeDashboard>
+        <IoTEdgeDashboard  v-if="showPane" ></IoTEdgeDashboard>
       </el-tab-pane>
       <el-tab-pane label="IoT Edge部署">
         <IoTEdgeDeploy></IoTEdgeDeploy>
@@ -174,6 +174,7 @@ export default {
   data() {
     return {
       load: false,
+      showPane:false,
       activeName: "",
       changeCountFormVisible: false,
       changeSkuFormVisible: false,

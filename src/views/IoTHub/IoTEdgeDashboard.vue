@@ -19,7 +19,7 @@
     </div>
     <el-table
       ref="multipleTable"
-      :data="tableData"
+      :data="displayData"
       tooltip-effect="dark"
       :default-sort="{prop: 'name', order: 'descending'}"
       @selection-change="handleSelectionChange()"
@@ -29,19 +29,20 @@
         <template slot-scope="scope">
           <router-link
             class="hide-underline"
-            :to="`${$route.params.name}/IoTEdge/${scope.row.deviceID}`"
-          >{{ scope.row.deviceID }}</router-link>
+            :to="`${$route.params.name}/IoTEdge/${scope.row.deviceId}`"
+          >{{ scope.row.deviceId }}</router-link>
         </template>
       </el-table-column>
-      <el-table-column prop="status" label="运行时相应" width="150" sortable></el-table-column>
-      <el-table-column prop="edgeCount" label="IoT Edge模块计数" width="180" sortable></el-table-column>
-      <el-table-column prop="clientCount" label="已连接的客户端计数" width="200" sortable></el-table-column>
-      <el-table-column prop="deployCount" label="部署计数" sortable></el-table-column>
+      <el-table-column prop="status" label="状态" width="80"></el-table-column>
+      <el-table-column prop="lastActivityTime" label="上次活动时间" width="150" sortable></el-table-column>
+      <el-table-column prop="statusUpdateTime" label="上次状态更新" width="150" sortable></el-table-column>
+      <el-table-column prop="authenticationType" label="身份验证类型" width="120"></el-table-column>
+      <el-table-column prop="cloudToDeviceMessageCount" label="云到设备消息计数" sortable></el-table-column>
       <el-table-column label="操作" show-overflow-tooltip>
         <template slot-scope="scope">
           <router-link
             class="hide-underline"
-            :to="`${$route.params.name}/IoTDevice/${scope.row.deviceId}`"
+            :to="`${$route.params.name}/IoTEdge/${scope.row.deviceId}`"
           >
             <el-button size="mini">编辑</el-button>
           </router-link>
@@ -49,13 +50,12 @@
         </template>
       </el-table-column>
     </el-table>
-    <div class="button-container">
-    </div>
+    <div class="button-container"></div>
   </div>
 </template>
 
 <script>
-import {createEdge} from '@/api/api.js'
+import { createEdge, getEdgeDevices } from "@/api/api.js";
 export default {
   name: "IoTEdgeDashboard",
   data() {
@@ -66,23 +66,23 @@ export default {
       input: "",
       multipleSelection: [],
       createEdge: {
-        deviceId: ''
+        deviceId: ""
       }
     };
   },
 
   methods: {
-    // search() {
-    //   this.displayData = [];
-    //   var filter = this.input.toUpperCase();
-    //   for (var i = 0; i < this.tableData.length; i++) {
-    //     if (this.tableData[i]) {
-    //       if (this.tableData[i].deviceId.toUpperCase().indexOf(filter) > -1) {
-    //         this.displayData.push(this.tableData[i]);
-    //       }
-    //     }
-    //   }
-    // },
+    search() {
+      this.displayData = [];
+      var filter = this.input.toUpperCase();
+      for (var i = 0; i < this.tableData.length; i++) {
+        if (this.tableData[i]) {
+          if (this.tableData[i].deviceId.toUpperCase().indexOf(filter) > -1) {
+            this.displayData.push(this.tableData[i]);
+          }
+        }
+      }
+    },
     handleSelectionChange(val) {
       this.multipleSelection = val;
     },
@@ -103,6 +103,16 @@ export default {
         this.$message.error("创建失败");
       }
     }
+  },
+  async mounted() {
+    this.tableData = (
+      await getEdgeDevices({
+        hostName: this.$store.state.hostName,
+        sharedAccessKeyName: this.$store.state.accessKey.keyName,
+        sharedAccessKey: this.$store.state.accessKey.primaryKey
+      })
+    ).data.body;
+    this.displayData = this.tableData;
   }
 };
 </script>

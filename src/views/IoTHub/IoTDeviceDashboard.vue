@@ -35,8 +35,8 @@
       </el-table-column>
       <el-table-column prop="status" label="状态" width="80"></el-table-column>
       <el-table-column prop="lastActivityTime" label="上次活动时间" width="150" sortable></el-table-column>
-      <el-table-column prop="statusUpdatedTime" label="上次状态更新" width="150" sortable></el-table-column>
-      <el-table-column prop="authentication.type" label="身份验证类型" width="120"></el-table-column>
+      <el-table-column prop="statusUpdateTime" label="上次状态更新" width="150" sortable></el-table-column>
+      <el-table-column prop="authenticationType" label="身份验证类型" width="120"></el-table-column>
       <el-table-column prop="cloudToDeviceMessageCount" label="云到设备消息计数" sortable></el-table-column>
       <el-table-column label="操作" show-overflow-tooltip>
         <template slot-scope="scope">
@@ -122,7 +122,7 @@ export default {
     }
   },
   async mounted() {
-    this.tableData = (await getDevices(this.$props)).data;
+    this.tableData = ((await getDevices(this.$props)).data.body);
     this.displayData = this.tableData;
   },
   computed: {},

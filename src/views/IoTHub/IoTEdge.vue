@@ -26,13 +26,6 @@
       </el-dropdown>
     </div>
 
-    <div class="entry-container">
-      <!-- <IoTEntry title="设备ID" :content="$route.params.deviceID"></IoTEntry>
-      <IoTEntry title="主连接字符串" content="一个字符串"></IoTEntry>
-      <IoTEntry title="IoT Edge 运行时响应" content="200"></IoTEntry>
-      <IoTEntry title="启用到 IoT 中心的连接" content style="display: inline-block; margin-top: -18px;"></IoTEntry>
-      <el-radio v-model="radio" label="1" style="font-size: 16px;">启用</el-radio>
-      <el-radio v-model="radio" label="2" style="font-size: 16px;">禁用</el-radio>-->
       <div class="entry-container">
         <span>
           <p class="entry-title">设备ID:</p>
@@ -45,15 +38,15 @@
         </span>
         <br />
         <span>
-          <p class="entry-title">主连接字符串:</p>
-          {{}}
-          <img src="../../assets/img/copy.png" alt="copy" v-clipboard:copy />
+          <p class="entry-title">主密钥:</p>
+          <el-input v-model="primaryKey" readonly></el-input>
+          <img src="../../assets/img/copy.png" alt="copy" v-clipboard:copy="this.primaryKey" />
         </span>
         <br />
         <span>
           <p class="entry-title">主连接字符串:</p>
-          {{}}
-          <img src="../../assets/img/copy.png" alt="copy" v-clipboard:copy />
+          <el-input v-model="connectionString" readonly> </el-input>
+          <img src="../../assets/img/copy.png" alt="copy" v-clipboard:copy="this.connectionString" />
         </span>
         <br />
         <span>
@@ -63,13 +56,13 @@
         </span>
         <br />
       </div>
-    </div>
+
 
     <el-tabs tab-position="left">
       <el-tab-pane label="模块">
         <el-table
           ref="multipleTable"
-          :data="tableData"
+          :data="tableData1"
           tooltip-effect="dark"
           :default-sort="{prop: 'name', order: 'descending'}"
         >
@@ -85,7 +78,7 @@
       <el-tab-pane label="IoT Edge中心链接">
         <el-table
           ref="multipleTable"
-          :data="tableData"
+          :data="tableData2"
           tooltip-effect="dark"
           :default-sort="{prop: 'name', order: 'descending'}"
         >
@@ -97,7 +90,7 @@
       <el-tab-pane label="部署">
         <el-table
           ref="multipleTable"
-          :data="tableData"
+          :data="tableData3"
           tooltip-effect="dark"
           :default-sort="{prop: 'name', order: 'descending'}"
         >
@@ -114,12 +107,42 @@
 </template>
 
 <script>
+import {getDeviceKey} from "@/api/api.js";
+
 export default {
   components: {},
   data() {
     return {
-      radio: "1"
+      radio: "1",
+      primaryKey: "",
+      deviceId: "",
+      connectionString: "",
+
+      tableData1:[],
+      tableData2:[],
+      tableData3:[],
     };
+  },
+
+
+  async mounted(){
+    var res = (await getDeviceKey(this.$route.params.deviceID, {
+        hostName: this.$store.state.hostName,
+        sharedAccessKeyName: this.$store.state.accessKey.keyName,
+        sharedAccessKey: this.$store.state.accessKey.primaryKey
+      }))
+      this.connectionString = res.data.substring(res.data.indexOf('"PrimaryConnectionString":')+26, res.data.indexOf(',"SecondaryConnectionString":'));
+      this.primaryKey = res.data.substring(res.data.indexOf('"PrimaryKey":')+13,res.data.indexOf(',"SecondaryKey":'))
+      this.deviceId = res.data.substring(11,res.data.indexOf(',"PrimaryKey":'));
+  },
+
+  computed: {
+    accessKey() {
+      return this.$store.state.accessKey;
+    },
+    hostName() {
+      return this.$store.state.hostName;
+    }
   }
 };
 </script>

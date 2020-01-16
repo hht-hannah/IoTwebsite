@@ -91,7 +91,6 @@ export default {
       displayData: [],
       tableData: [],
       resourcegroup: [],
-      loading: true,
       input: "",
       multipleSelection: [],
       dialogFormVisible: false,
@@ -106,10 +105,6 @@ export default {
           capacity: 1
         }
       }
-      // newform: {
-      //   name: "",
-      //   location: ''
-      // }
     };
   },
   methods: {

@@ -1,12 +1,6 @@
 <template>
   <div class='home-container'>
-    <!-- <Header class="nav-screen"/>
-    <div class='tac sidebar-screen'>
-      <Sidebar class="full-screen adaptive"/>
-      <div class='router-view'>
-          <router-view></router-view>
-      </div>
-    </div> -->
+    <!-- 这个router-view是最大的 所有的子页面都会render到这里来 -->
     <router-view></router-view>
   </div>
 </template>

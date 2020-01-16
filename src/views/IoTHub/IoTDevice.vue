@@ -22,7 +22,6 @@
       </el-dropdown>
     </div>
 
-    <div class="entry-container">
       <div class="entry-container">
         <span>
           <p class="entry-title">设备ID:</p>
@@ -54,7 +53,6 @@
         <br />
       </div>
     </div>
-  </div>
 </template>
 
 <script>

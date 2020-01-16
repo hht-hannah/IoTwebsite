@@ -5,14 +5,47 @@
     <el-card class="box-card">
       <div class="text item">{{'tenantID: ' + tenantID }}</div>
       <div class="text item">{{'clientID: ' + clientID }}</div>
-      <el-button> 查看权限 </el-button>
+      <el-button @click="dialogFormVisible = true">查看权限</el-button>
     </el-card>
 
     <el-card class="box-card">
-       <div class="text item">{{'tenantID: ' + tenantID }}</div>
+      <div class="text item">{{'tenantID: ' + tenantID }}</div>
       <div class="text item">{{'clientID: ' + clientID }}</div>
-      <el-button> 查看权限 </el-button>
+      <el-button @click="dialogFormVisible = true">查看权限</el-button>
     </el-card>
+
+    <el-dialog title="权限" :visible.sync="dialogFormVisible">
+      <el-form :model="form" label-width="120px">
+        <el-form-item label="IoT中心">
+          <el-checkbox-group v-model="form.iothub">
+            <el-checkbox label="查看" name="iothub"></el-checkbox>
+            <el-checkbox label="修改" name="iothub"></el-checkbox>
+            <el-checkbox label="删除" name="iothub"></el-checkbox>
+            <el-checkbox label="新增" name="iothub"></el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+        <el-form-item label="AKS">
+          <el-checkbox-group v-model="form.aks">
+            <el-checkbox label="查看" name="aks"></el-checkbox>
+            <el-checkbox label="修改" name="aks"></el-checkbox>
+            <el-checkbox label="删除" name="aks"></el-checkbox>
+            <el-checkbox label="新增" name="aks"></el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+        <el-form-item label="资源组">
+          <el-checkbox-group v-model="form.resource">
+            <el-checkbox label="查看" name="resource"></el-checkbox>
+            <el-checkbox label="修改" name="resource"></el-checkbox>
+            <el-checkbox label="删除" name="resource"></el-checkbox>
+            <el-checkbox label="新增" name="resource"></el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="onSubmit()">保存</el-button>
+          <el-button @click="dialogFormVisible = false">取消</el-button>
+        </el-form-item>
+      </el-form>
+    </el-dialog>
 
     <!-- v-for在进行过度时，使用 transition-group 标签，使用后内层标签需要有独有的 key 值 这段可以列出所有的user-->
     <!-- <transition-group name="list-complete" tag="ul">
@@ -39,7 +72,13 @@ export default {
       username: "",
       tenantID: "",
       clientID: "",
-      clientSecret: ""
+      clientSecret: "",
+      dialogFormVisible: false,
+      form: {
+        iothub: [],
+        aks: [],
+        resource: []
+      }
     };
   },
   mounted() {
@@ -47,6 +86,9 @@ export default {
     this.username = localStorage.getItem("username");
   },
   methods: {
+    onSubmit() {
+
+    },
     get_User() {
       setTimeout(() => {
         api.getUser().then(({ data }) => {
@@ -138,16 +180,16 @@ a {
   margin-left: 40px;
 }
 
-  .text {
-    font-size: 16px;
-  }
+.text {
+  font-size: 16px;
+}
 
-  .item {
-    padding: 18px 0;
-  }
+.item {
+  padding: 18px 0;
+}
 
-  .box-card {
-    width: 600px;
-    margin: 20px;
-  }
+.box-card {
+  width: 600px;
+  margin: 20px;
+}
 </style>
