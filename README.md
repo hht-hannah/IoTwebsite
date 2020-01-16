@@ -5,6 +5,8 @@
 * 后台： nodejs (express) + mongodb
 * 前后台交互： axios
 * 单点登录： jsonwebtoken
+* 图表： echart: https://echarts.apache.org/zh/tutorial.html
+* 组件： element: https://element.eleme.cn/#/zh-CN/component/quickstart
 
 ## Build Setup
 
